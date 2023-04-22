@@ -7,19 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD0F013629F3E92400BE2379 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0F013529F3E92400BE2379 /* AuthViewController.swift */; };
 		AD28FD6629F13D120053C8E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD28FD6529F13D120053C8E7 /* AppDelegate.swift */; };
 		AD28FD6F29F13D140053C8E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD28FD6E29F13D140053C8E7 /* Assets.xcassets */; };
 		AD28FD7229F13D140053C8E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD28FD7029F13D140053C8E7 /* LaunchScreen.storyboard */; };
-		AD28FD7C29F13E030053C8E7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD28FD7B29F13E030053C8E7 /* LoginViewController.swift */; };
+		AD28FD7C29F13E030053C8E7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD28FD7B29F13E030053C8E7 /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AD0F013529F3E92400BE2379 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		AD28FD6229F13D120053C8E7 /* TestForMobileUp_KolesnikovSA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestForMobileUp_KolesnikovSA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD28FD6529F13D120053C8E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AD28FD6E29F13D140053C8E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AD28FD7129F13D140053C8E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AD28FD7329F13D140053C8E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AD28FD7B29F13E030053C8E7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		AD28FD7B29F13E030053C8E7 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +35,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AD0F013329F3E81A00BE2379 /* loginModule */ = {
+			isa = PBXGroup;
+			children = (
+				AD28FD7B29F13E030053C8E7 /* MainViewController.swift */,
+			);
+			path = loginModule;
+			sourceTree = "<group>";
+		};
+		AD0F013429F3E86000BE2379 /* AuthModule */ = {
+			isa = PBXGroup;
+			children = (
+				AD0F013529F3E92400BE2379 /* AuthViewController.swift */,
+			);
+			path = AuthModule;
+			sourceTree = "<group>";
+		};
 		AD28FD5929F13D120053C8E7 = {
 			isa = PBXGroup;
 			children = (
@@ -72,7 +90,8 @@
 		AD28FD7A29F13DDD0053C8E7 /* MainFlow */ = {
 			isa = PBXGroup;
 			children = (
-				AD28FD7B29F13E030053C8E7 /* LoginViewController.swift */,
+				AD0F013429F3E86000BE2379 /* AuthModule */,
+				AD0F013329F3E81A00BE2379 /* loginModule */,
 			);
 			path = MainFlow;
 			sourceTree = "<group>";
@@ -147,7 +166,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AD28FD7C29F13E030053C8E7 /* LoginViewController.swift in Sources */,
+				AD28FD7C29F13E030053C8E7 /* MainViewController.swift in Sources */,
+				AD0F013629F3E92400BE2379 /* AuthViewController.swift in Sources */,
 				AD28FD6629F13D120053C8E7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -303,7 +323,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -330,7 +350,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

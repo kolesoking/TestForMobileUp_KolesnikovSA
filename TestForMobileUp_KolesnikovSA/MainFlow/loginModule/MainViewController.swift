@@ -1,5 +1,5 @@
 //
-//  LoginViewController.swift
+//  MainViewController.swift
 //  TestForMobileUp_KolesnikovSA
 //
 //  Created by Sergey Kolesnikov on 20.04.2023.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class MainViewController: UIViewController {
     
     // MARK: - Constants
     
@@ -66,14 +66,22 @@ class LoginViewController: UIViewController {
         view.backgroundColor = .white
         configureAppearance()
     }
+    
+    // MARK: - Methods
+    
+    @objc private func signInButtonPressed() {
+        let authVC = AuthViewController()
+        present(authVC, animated: true)
+    }
 }
 
 // MARK: - PrivateMethods
 
-private extension LoginViewController {
+private extension MainViewController {
     
     func configureAppearance() {
         setConstreints()
+        signInButton.addTarget(self, action: #selector(signInButtonPressed), for: .touchUpInside)
     }
     
     func setConstreints() {
