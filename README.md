@@ -14,4 +14,5 @@
   4. Разработка экрана MoreInfo 
       - 4.1 Создать MoreInfoViewController и перенести UI-элементов из макета Figmf (2 часа)
       - 4.2 Добавить переход на MoreInfoViewController по нажатию на ячейку GaleryCollectionView (2 часа)
+      - 4.3 Добавить кнопку Share
 
