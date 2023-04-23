@@ -17,8 +17,7 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource {
     }
     
     // MARK: - Properties
-    
-    let galleryVM = GalleryViewModel()
+
     var gallery = GalleryModel.getGallery()
     
     // MARK: - Views
@@ -125,8 +124,8 @@ extension GalleryViewController: UICollectionViewDelegate, UICollectionViewDeleg
         guard let cell = cell as? GalleryCollectionViewCell else {
             return UICollectionViewCell()
         }
-        // TODO: - Проработать ячейку
-        cell.titleLabel = "\(gallery.response.items[indexPath.row].date)"
+        let sizeNumber = gallery.response.items[indexPath.row].sizes.count - 1
+        cell.imageURLString = gallery.response.items[indexPath.row].sizes[sizeNumber].url
         return cell
     }
     

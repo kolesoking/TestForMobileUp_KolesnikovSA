@@ -8,14 +8,23 @@
 import UIKit
 
 class GalleryCollectionViewCell: UICollectionViewCell {
-
-    @IBOutlet weak var mainLabel: UILabel!
     
-    var titleLabel = "" {
+    // MARK: - Views
+
+    @IBOutlet weak var mainImage: UIImageView!
+    
+    // MARK: - Properties
+    
+    var imageURLString: String = "" {
         didSet {
-            mainLabel.text = titleLabel
+            guard let url = URL(string: imageURLString) else {
+                return
+            }
+            mainImage.loadImage(from: url)
         }
     }
+    
+    // MARK: - UICollectionViewCell
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,8 +32,13 @@ class GalleryCollectionViewCell: UICollectionViewCell {
     }
 }
 
+// MARK: - PrivateMethods
+
 private extension GalleryCollectionViewCell {
     func configureAppearance() {
+        mainImage.contentMode = .scaleAspectFill
+        backgroundColor = .lightGray
+        
         contentView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
