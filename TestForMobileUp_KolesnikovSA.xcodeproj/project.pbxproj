@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		AD0F013629F3E92400BE2379 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0F013529F3E92400BE2379 /* AuthViewController.swift */; };
+		AD0F013B29F533EB00BE2379 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0F013A29F533EB00BE2379 /* GalleryViewController.swift */; };
+		AD0F013E29F538EA00BE2379 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0F013D29F538EA00BE2379 /* TokenManager.swift */; };
 		AD28FD6629F13D120053C8E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD28FD6529F13D120053C8E7 /* AppDelegate.swift */; };
 		AD28FD6F29F13D140053C8E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD28FD6E29F13D140053C8E7 /* Assets.xcassets */; };
 		AD28FD7229F13D140053C8E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD28FD7029F13D140053C8E7 /* LaunchScreen.storyboard */; };
@@ -16,6 +18,8 @@
 
 /* Begin PBXFileReference section */
 		AD0F013529F3E92400BE2379 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		AD0F013A29F533EB00BE2379 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
+		AD0F013D29F538EA00BE2379 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		AD28FD6229F13D120053C8E7 /* TestForMobileUp_KolesnikovSA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestForMobileUp_KolesnikovSA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD28FD6529F13D120053C8E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AD28FD6E29F13D140053C8E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,6 +55,22 @@
 			path = AuthModule;
 			sourceTree = "<group>";
 		};
+		AD0F013729F5338700BE2379 /* GalleryFlow */ = {
+			isa = PBXGroup;
+			children = (
+				AD0F013A29F533EB00BE2379 /* GalleryViewController.swift */,
+			);
+			path = GalleryFlow;
+			sourceTree = "<group>";
+		};
+		AD0F013C29F5380800BE2379 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				AD0F013D29F538EA00BE2379 /* TokenManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		AD28FD5929F13D120053C8E7 = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +90,8 @@
 		AD28FD6429F13D120053C8E7 /* TestForMobileUp_KolesnikovSA */ = {
 			isa = PBXGroup;
 			children = (
+				AD0F013C29F5380800BE2379 /* Services */,
+				AD0F013729F5338700BE2379 /* GalleryFlow */,
 				AD28FD7A29F13DDD0053C8E7 /* MainFlow */,
 				AD28FD7929F13DBB0053C8E7 /* Appearence */,
 			);
@@ -167,6 +189,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD28FD7C29F13E030053C8E7 /* MainViewController.swift in Sources */,
+				AD0F013B29F533EB00BE2379 /* GalleryViewController.swift in Sources */,
+				AD0F013E29F538EA00BE2379 /* TokenManager.swift in Sources */,
 				AD0F013629F3E92400BE2379 /* AuthViewController.swift in Sources */,
 				AD28FD6629F13D120053C8E7 /* AppDelegate.swift in Sources */,
 			);
