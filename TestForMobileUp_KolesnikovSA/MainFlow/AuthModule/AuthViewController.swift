@@ -87,6 +87,13 @@ private extension AuthViewController {
         guard let url = makeURL() else { return }
         webView.load(URLRequest(url: url))
     }
+    
+    func presentGalleryVC() {
+        let galleryVC = GalleryViewController()
+        let navController = UINavigationController(rootViewController: galleryVC)
+        navController.modalPresentationStyle = .overFullScreen
+        present(navController, animated: true)
+    }
 }
 
 extension AuthViewController: WKNavigationDelegate {
@@ -115,7 +122,11 @@ extension AuthViewController: WKNavigationDelegate {
             // TODO: - Убарть Print
             print("Token : \(token)")
         }
+        
+        // TODO: - Исправить баг с неоткрывающимся окном
+        
         decisionHandler(.allow)
         self.dismiss(animated: true)
+        presentGalleryVC()
     }
 }

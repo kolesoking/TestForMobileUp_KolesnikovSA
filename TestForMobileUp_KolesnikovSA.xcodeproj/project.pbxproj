@@ -10,6 +10,8 @@
 		AD0F013629F3E92400BE2379 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0F013529F3E92400BE2379 /* AuthViewController.swift */; };
 		AD0F013B29F533EB00BE2379 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0F013A29F533EB00BE2379 /* GalleryViewController.swift */; };
 		AD0F013E29F538EA00BE2379 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0F013D29F538EA00BE2379 /* TokenManager.swift */; };
+		AD0F014529F5807800BE2379 /* GalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0F014329F5807800BE2379 /* GalleryCollectionViewCell.swift */; };
+		AD0F014629F5807800BE2379 /* GalleryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD0F014429F5807800BE2379 /* GalleryCollectionViewCell.xib */; };
 		AD28FD6629F13D120053C8E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD28FD6529F13D120053C8E7 /* AppDelegate.swift */; };
 		AD28FD6F29F13D140053C8E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD28FD6E29F13D140053C8E7 /* Assets.xcassets */; };
 		AD28FD7229F13D140053C8E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD28FD7029F13D140053C8E7 /* LaunchScreen.storyboard */; };
@@ -20,6 +22,8 @@
 		AD0F013529F3E92400BE2379 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		AD0F013A29F533EB00BE2379 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		AD0F013D29F538EA00BE2379 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
+		AD0F014329F5807800BE2379 /* GalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewCell.swift; sourceTree = "<group>"; };
+		AD0F014429F5807800BE2379 /* GalleryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GalleryCollectionViewCell.xib; sourceTree = "<group>"; };
 		AD28FD6229F13D120053C8E7 /* TestForMobileUp_KolesnikovSA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestForMobileUp_KolesnikovSA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD28FD6529F13D120053C8E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AD28FD6E29F13D140053C8E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -58,6 +62,7 @@
 		AD0F013729F5338700BE2379 /* GalleryFlow */ = {
 			isa = PBXGroup;
 			children = (
+				AD0F013F29F57C9000BE2379 /* Cells */,
 				AD0F013A29F533EB00BE2379 /* GalleryViewController.swift */,
 			);
 			path = GalleryFlow;
@@ -69,6 +74,15 @@
 				AD0F013D29F538EA00BE2379 /* TokenManager.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		AD0F013F29F57C9000BE2379 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				AD0F014329F5807800BE2379 /* GalleryCollectionViewCell.swift */,
+				AD0F014429F5807800BE2379 /* GalleryCollectionViewCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		AD28FD5929F13D120053C8E7 = {
@@ -177,6 +191,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD28FD7229F13D140053C8E7 /* LaunchScreen.storyboard in Resources */,
+				AD0F014629F5807800BE2379 /* GalleryCollectionViewCell.xib in Resources */,
 				AD28FD6F29F13D140053C8E7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -189,6 +204,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD28FD7C29F13E030053C8E7 /* MainViewController.swift in Sources */,
+				AD0F014529F5807800BE2379 /* GalleryCollectionViewCell.swift in Sources */,
 				AD0F013B29F533EB00BE2379 /* GalleryViewController.swift in Sources */,
 				AD0F013E29F538EA00BE2379 /* TokenManager.swift in Sources */,
 				AD0F013629F3E92400BE2379 /* AuthViewController.swift in Sources */,
