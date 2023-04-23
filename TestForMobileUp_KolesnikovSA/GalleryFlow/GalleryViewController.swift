@@ -18,7 +18,8 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource {
     
     // MARK: - Properties
     
-
+    let galleryVM = GalleryViewModel()
+    var gallery = GalleryModel.getGallery()
     
     // MARK: - Views
     
@@ -53,6 +54,40 @@ private extension GalleryViewController {
         setConstraints()
         view.backgroundColor = .white
         configureNavBar()
+        // TODO:
+        updateData()
+        print("JJJ: \(gallery.response.items.count)")
+        
+    }
+    
+    func updateData() {
+        var urlComponents = URLComponents()
+        urlComponents.scheme = "https"
+        urlComponents.host = "api.vk.com"
+        urlComponents.path = "/method/photos.get"
+        
+        urlComponents.queryItems = [
+            URLQueryItem(name: "access_token", value: TokenManager.token),
+            URLQueryItem(name: "owner_id", value: "-128666765"),
+            URLQueryItem(name: "album_id", value: "266310117"),
+            URLQueryItem(name: "v", value: "5.131"),
+        ]
+        
+        guard let url = urlComponents.url else { return }
+        let request = URLRequest(url: url)
+        let task = URLSession.shared.dataTask(with: request) { [ weak self ] (data, response, error) in
+            guard let sself = self, let data = data else { return }
+            guard let newGallery = try? JSONDecoder().decode(GalleryModel.self, from: data) else { return }
+            print("AAAAA: \(newGallery.response.items.count)")
+            sself.gallery = newGallery
+            
+            DispatchQueue.main.async { [ weak self] in
+                self?.galleryCollectionView.reloadData()
+            }
+        }
+        task.resume()
+        
+        print("HHH: \(self.gallery.response.items.count)")
     }
     
     func configureNavBar() {
@@ -82,7 +117,7 @@ private extension GalleryViewController {
 
 extension GalleryViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return gallery.response.items.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -91,7 +126,7 @@ extension GalleryViewController: UICollectionViewDelegate, UICollectionViewDeleg
             return UICollectionViewCell()
         }
         // TODO: - Проработать ячейку
-        cell.backgroundColor = .gray
+        cell.titleLabel = "\(gallery.response.items[indexPath.row].date)"
         return cell
     }
     

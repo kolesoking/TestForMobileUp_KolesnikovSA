@@ -12,10 +12,12 @@
 		AD0F013E29F538EA00BE2379 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0F013D29F538EA00BE2379 /* TokenManager.swift */; };
 		AD0F014529F5807800BE2379 /* GalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0F014329F5807800BE2379 /* GalleryCollectionViewCell.swift */; };
 		AD0F014629F5807800BE2379 /* GalleryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD0F014429F5807800BE2379 /* GalleryCollectionViewCell.xib */; };
+		AD0F014929F5B9E200BE2379 /* GalleryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0F014829F5B9E100BE2379 /* GalleryModel.swift */; };
 		AD28FD6629F13D120053C8E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD28FD6529F13D120053C8E7 /* AppDelegate.swift */; };
 		AD28FD6F29F13D140053C8E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD28FD6E29F13D140053C8E7 /* Assets.xcassets */; };
 		AD28FD7229F13D140053C8E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD28FD7029F13D140053C8E7 /* LaunchScreen.storyboard */; };
 		AD28FD7C29F13E030053C8E7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD28FD7B29F13E030053C8E7 /* MainViewController.swift */; };
+		AD3F051329F5EF71000441AB /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3F051229F5EF71000441AB /* ImageLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,12 +26,14 @@
 		AD0F013D29F538EA00BE2379 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		AD0F014329F5807800BE2379 /* GalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewCell.swift; sourceTree = "<group>"; };
 		AD0F014429F5807800BE2379 /* GalleryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GalleryCollectionViewCell.xib; sourceTree = "<group>"; };
+		AD0F014829F5B9E100BE2379 /* GalleryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryModel.swift; sourceTree = "<group>"; };
 		AD28FD6229F13D120053C8E7 /* TestForMobileUp_KolesnikovSA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestForMobileUp_KolesnikovSA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD28FD6529F13D120053C8E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AD28FD6E29F13D140053C8E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AD28FD7129F13D140053C8E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AD28FD7329F13D140053C8E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD28FD7B29F13E030053C8E7 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		AD3F051229F5EF71000441AB /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +66,7 @@
 		AD0F013729F5338700BE2379 /* GalleryFlow */ = {
 			isa = PBXGroup;
 			children = (
+				AD0F014729F5B9C700BE2379 /* Models */,
 				AD0F013F29F57C9000BE2379 /* Cells */,
 				AD0F013A29F533EB00BE2379 /* GalleryViewController.swift */,
 			);
@@ -71,6 +76,7 @@
 		AD0F013C29F5380800BE2379 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				AD3F051129F5EF60000441AB /* ImageLoader */,
 				AD0F013D29F538EA00BE2379 /* TokenManager.swift */,
 			);
 			path = Services;
@@ -83,6 +89,14 @@
 				AD0F014429F5807800BE2379 /* GalleryCollectionViewCell.xib */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		AD0F014729F5B9C700BE2379 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AD0F014829F5B9E100BE2379 /* GalleryModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		AD28FD5929F13D120053C8E7 = {
@@ -130,6 +144,14 @@
 				AD0F013329F3E81A00BE2379 /* loginModule */,
 			);
 			path = MainFlow;
+			sourceTree = "<group>";
+		};
+		AD3F051129F5EF60000441AB /* ImageLoader */ = {
+			isa = PBXGroup;
+			children = (
+				AD3F051229F5EF71000441AB /* ImageLoader.swift */,
+			);
+			path = ImageLoader;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -206,8 +228,10 @@
 				AD28FD7C29F13E030053C8E7 /* MainViewController.swift in Sources */,
 				AD0F014529F5807800BE2379 /* GalleryCollectionViewCell.swift in Sources */,
 				AD0F013B29F533EB00BE2379 /* GalleryViewController.swift in Sources */,
+				AD0F014929F5B9E200BE2379 /* GalleryModel.swift in Sources */,
 				AD0F013E29F538EA00BE2379 /* TokenManager.swift in Sources */,
 				AD0F013629F3E92400BE2379 /* AuthViewController.swift in Sources */,
+				AD3F051329F5EF71000441AB /* ImageLoader.swift in Sources */,
 				AD28FD6629F13D120053C8E7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

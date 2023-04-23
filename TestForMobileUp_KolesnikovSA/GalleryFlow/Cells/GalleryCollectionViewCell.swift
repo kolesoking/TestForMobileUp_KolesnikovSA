@@ -9,6 +9,14 @@ import UIKit
 
 class GalleryCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var mainLabel: UILabel!
+    
+    var titleLabel = "" {
+        didSet {
+            mainLabel.text = titleLabel
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         configureAppearance()

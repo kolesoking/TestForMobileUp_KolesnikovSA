@@ -80,6 +80,8 @@ private extension AuthViewController {
             URLQueryItem(name: "response_type", value: Constants.responceType)
         ]
         
+        print(urlComponents)
+        
         return urlComponents.url
     }
     
