@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol MainViewControllerDelegate {
+    func presentGalleryViewController()
+}
+
 final class MainViewController: UIViewController {
     
     // MARK: - Constants
@@ -67,10 +71,12 @@ final class MainViewController: UIViewController {
         configureAppearance()
     }
     
+ 
     // MARK: - Methods
     
     @objc private func signInButtonPressed() {
         let authVC = AuthViewController()
+        authVC.delegate = self
         present(authVC, animated: true)
     }
 }
@@ -99,5 +105,19 @@ private extension MainViewController {
             signInButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: Constants.signInButtonBottomAnchor),
             signInButton.heightAnchor.constraint(equalToConstant: Constants.signInButtonHeightAnchor)
         ])
+    }
+}
+
+// MARK: - MainViewControllerDelegate
+
+extension MainViewController: MainViewControllerDelegate {
+    func presentGalleryViewController() {
+        if !TokenManager.token.isEmpty {
+            let vc = GalleryViewController()
+            let navController = UINavigationController(rootViewController: vc)
+            navController.modalPresentationStyle = .overFullScreen
+            present(navController, animated: true)
+            self.dismiss(animated: false)
+        }            
     }
 }

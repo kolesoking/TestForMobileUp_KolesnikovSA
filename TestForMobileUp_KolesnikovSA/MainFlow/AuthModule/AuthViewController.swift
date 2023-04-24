@@ -35,6 +35,8 @@ final class AuthViewController: UIViewController {
         return webView
     }()
     
+    var delegate: MainViewControllerDelegate!
+    
     // MARK: - UIView Controller
 
     override func viewDidLoad() {
@@ -119,16 +121,22 @@ extension AuthViewController: WKNavigationDelegate {
             }
         
         if let token = params["access_token"] {
-            
             TokenManager.token = token
-            // TODO: - Убарть Print
-            print("Token : \(token)")
+            clean()
+            dismiss(animated: true)
         }
         
-        // TODO: - Исправить баг с неоткрывающимся окном
-        
         decisionHandler(.allow)
-        self.dismiss(animated: true)
-        presentGalleryVC()
+        delegate.presentGalleryViewController()
+    }
+    
+    func clean() {
+        HTTPCookieStorage.shared.removeCookies(since: Date.distantPast)
+        
+        WKWebsiteDataStore.default().fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes()) { records in
+            records.forEach { record in
+                WKWebsiteDataStore.default().removeData(ofTypes: record.dataTypes, for: [record], completionHandler: {})
+            }
+        }
     }
 }

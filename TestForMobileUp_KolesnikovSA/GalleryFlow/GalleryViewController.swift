@@ -46,16 +46,15 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource {
 private extension GalleryViewController {
     
     func configureAppearance() {
+        view.backgroundColor = .white
+        
         galleryCollectionView.delegate = self
         galleryCollectionView.dataSource = self
         galleryCollectionView.register(UINib(nibName: "\(GalleryCollectionViewCell.self)", bundle: .main), forCellWithReuseIdentifier: "\(GalleryCollectionViewCell.self)")
         
         setConstraints()
-        view.backgroundColor = .white
         configureNavBar()
-        // TODO:
         updateData()
-        print("JJJ: \(gallery.response.items.count)")
         
     }
     
@@ -108,7 +107,11 @@ private extension GalleryViewController {
     }
     
     @objc func exitButton() {
-        // TODO:
+        TokenManager.token = ""
+        let mainVC = MainViewController()
+        mainVC.modalPresentationStyle = .overFullScreen
+        self.dismiss(animated: false)
+        present(mainVC, animated: true)
         
         print("EXIT")
     }
