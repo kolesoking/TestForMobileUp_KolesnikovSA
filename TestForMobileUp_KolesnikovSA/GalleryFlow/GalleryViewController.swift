@@ -129,9 +129,13 @@ extension GalleryViewController: UICollectionViewDelegate, UICollectionViewDeleg
         return cell
     }
     
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        <#code#>
-//    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let moreInfoVC = MoreInfoViewController()
+        moreInfoVC.creationDate = gallery.response.items[indexPath.row].date
+        let sizeNumber = gallery.response.items[indexPath.row].sizes.count - 1
+        moreInfoVC.imageURLString = gallery.response.items[indexPath.row].sizes[sizeNumber].url
+        navigationController?.pushViewController(moreInfoVC, animated: true)
+    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = view.bounds.width / 2 - 1

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD0ECA7729F5F86700002A21 /* MoreInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0ECA7629F5F86700002A21 /* MoreInfoViewController.swift */; };
 		AD0F013629F3E92400BE2379 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0F013529F3E92400BE2379 /* AuthViewController.swift */; };
 		AD0F013B29F533EB00BE2379 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0F013A29F533EB00BE2379 /* GalleryViewController.swift */; };
 		AD0F013E29F538EA00BE2379 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0F013D29F538EA00BE2379 /* TokenManager.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AD0ECA7629F5F86700002A21 /* MoreInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreInfoViewController.swift; sourceTree = "<group>"; };
 		AD0F013529F3E92400BE2379 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		AD0F013A29F533EB00BE2379 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		AD0F013D29F538EA00BE2379 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
@@ -121,8 +123,9 @@
 			isa = PBXGroup;
 			children = (
 				AD0F013C29F5380800BE2379 /* Services */,
-				AD0F013729F5338700BE2379 /* GalleryFlow */,
 				AD28FD7A29F13DDD0053C8E7 /* MainFlow */,
+				AD0F013729F5338700BE2379 /* GalleryFlow */,
+				AD3F051629F5F7C7000441AB /* DitailsFlow */,
 				AD28FD7929F13DBB0053C8E7 /* Appearence */,
 			);
 			path = TestForMobileUp_KolesnikovSA;
@@ -155,6 +158,14 @@
 				AD3F051429F5F15D000441AB /* UIImageView + ImageLoader.swift */,
 			);
 			path = ImageLoader;
+			sourceTree = "<group>";
+		};
+		AD3F051629F5F7C7000441AB /* DitailsFlow */ = {
+			isa = PBXGroup;
+			children = (
+				AD0ECA7629F5F86700002A21 /* MoreInfoViewController.swift */,
+			);
+			path = DitailsFlow;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,6 +246,7 @@
 				AD0F013E29F538EA00BE2379 /* TokenManager.swift in Sources */,
 				AD0F013629F3E92400BE2379 /* AuthViewController.swift in Sources */,
 				AD3F051529F5F15D000441AB /* UIImageView + ImageLoader.swift in Sources */,
+				AD0ECA7729F5F86700002A21 /* MoreInfoViewController.swift in Sources */,
 				AD3F051329F5EF71000441AB /* ImageLoader.swift in Sources */,
 				AD28FD6629F13D120053C8E7 /* AppDelegate.swift in Sources */,
 			);
