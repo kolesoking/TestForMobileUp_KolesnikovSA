@@ -14,6 +14,12 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource {
     private enum Constants {
         static let navigationItemTile = "MobileUp Gallery"
         static let titleNavigationBarButtom = "Выход"
+        
+        // queryItems
+        
+        static let ownerId = "-128666765"
+        static let albumId = "266310117"
+        static let version = "5.131"
     }
     
     // MARK: - Properties
@@ -66,9 +72,9 @@ private extension GalleryViewController {
         
         urlComponents.queryItems = [
             URLQueryItem(name: "access_token", value: TokenManager.token),
-            URLQueryItem(name: "owner_id", value: "-128666765"),
-            URLQueryItem(name: "album_id", value: "266310117"),
-            URLQueryItem(name: "v", value: "5.131"),
+            URLQueryItem(name: "owner_id", value: Constants.ownerId),
+            URLQueryItem(name: "album_id", value: Constants.albumId),
+            URLQueryItem(name: "v", value: Constants.version),
         ]
         
         guard let url = urlComponents.url else { return }
@@ -76,7 +82,6 @@ private extension GalleryViewController {
         let task = URLSession.shared.dataTask(with: request) { [ weak self ] (data, response, error) in
             guard let sself = self, let data = data else { return }
             guard let newGallery = try? JSONDecoder().decode(GalleryModel.self, from: data) else { return }
-            print("AAAAA: \(newGallery.response.items.count)")
             sself.gallery = newGallery
             
             DispatchQueue.main.async { [ weak self] in
@@ -84,8 +89,6 @@ private extension GalleryViewController {
             }
         }
         task.resume()
-        
-        print("HHH: \(self.gallery.response.items.count)")
     }
     
     func configureNavBar() {
@@ -112,10 +115,10 @@ private extension GalleryViewController {
         mainVC.modalPresentationStyle = .overFullScreen
         self.dismiss(animated: false)
         present(mainVC, animated: true)
-        
-        print("EXIT")
     }
 }
+
+// MARK: - UICollectionViewDelegate, UICollectionViewDelegateFlowLayout
 
 extension GalleryViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -148,7 +151,7 @@ extension GalleryViewController: UICollectionViewDelegate, UICollectionViewDeleg
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return CGFloat(2)
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return CGFloat(0)
     }

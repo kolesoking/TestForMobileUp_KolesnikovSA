@@ -9,11 +9,21 @@ import UIKit
 
 class MoreInfoViewController: UIViewController {
     
+    // MARK: - Constants
+    
+    private enum Constants {
+        
+        static let systemNameShareButton = "square.and.arrow.up"
+        
+        static let dateFormat = "d MMMM yyyy"
+    }
+    
     // MARK: - Views
     
     let mainImage: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
+        imageView.semanticContentAttribute = .playback
         imageView.backgroundColor = .lightGray
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -52,28 +62,43 @@ private extension MoreInfoViewController {
         setConstreints()
         configureNavBar()
         view.backgroundColor = .white
+        print(imageURLString)
     }
     
     func configureNavBar() {
         navigationController?.navigationBar.tintColor = .black
+        
+        let shareButton = UIBarButtonItem(image: UIImage(systemName: Constants.systemNameShareButton), style: .plain, target: self, action: #selector(shareButtonPressed))
+        self.navigationItem.rightBarButtonItem = shareButton
+    }
+    
+    
+    
+    @objc func shareButtonPressed() {
+        let items: [Any] = [mainImage.image as Any]
+        let avc = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        self.present(avc, animated: true)
+        
     }
     
     func getDateFromUnixTime(unixTime: Int) -> String {
         let date = NSDate(timeIntervalSince1970: TimeInterval(unixTime))
         let utcDateFormatter = DateFormatter()
-//        utcDateFormatter.dateStyle = .medium
-//        utcDateFormatter.timeStyle = .none
-        utcDateFormatter.dateFormat = "d MMMM yyyy"
+        utcDateFormatter.dateFormat = Constants.dateFormat
         
         return utcDateFormatter.string(from: date as Date)
     }
+    
+
     
     func setConstreints() {
         view.addSubview(mainImage)
         NSLayoutConstraint.activate([
             mainImage.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            mainImage.widthAnchor.constraint(equalToConstant: view.bounds.width),
-            mainImage.heightAnchor.constraint(equalToConstant: view.bounds.width)
+            mainImage.leftAnchor.constraint(equalTo: view.leftAnchor),
+            mainImage.rightAnchor.constraint(equalTo: view.rightAnchor),
+            mainImage.widthAnchor.constraint(equalToConstant: self.view.bounds.width),
+            mainImage.heightAnchor.constraint(equalToConstant: self.view.bounds.width)
         ])
     }
 }
