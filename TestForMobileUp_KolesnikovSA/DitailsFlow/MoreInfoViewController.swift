@@ -62,7 +62,6 @@ private extension MoreInfoViewController {
         setConstreints()
         configureNavBar()
         view.backgroundColor = .white
-        print(imageURLString)
     }
     
     func configureNavBar() {
@@ -71,8 +70,6 @@ private extension MoreInfoViewController {
         let shareButton = UIBarButtonItem(image: UIImage(systemName: Constants.systemNameShareButton), style: .plain, target: self, action: #selector(shareButtonPressed))
         self.navigationItem.rightBarButtonItem = shareButton
     }
-    
-    
     
     @objc func shareButtonPressed() {
         let items: [Any] = [mainImage.image as Any]

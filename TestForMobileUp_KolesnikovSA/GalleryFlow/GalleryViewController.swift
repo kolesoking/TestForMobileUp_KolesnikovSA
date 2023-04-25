@@ -64,6 +64,14 @@ private extension GalleryViewController {
         
     }
     
+    func configureNavBar() {
+        let rightBarButtonItem = UIBarButtonItem(title: Constants.titleNavigationBarButtom, style: .plain, target: self, action: #selector(exitButton))
+        self.navigationItem.rightBarButtonItem = rightBarButtonItem
+        self.navigationItem.rightBarButtonItem?.tintColor = .black
+        
+        self.navigationItem.title = Constants.navigationItemTile
+    }
+    
     func updateData() {
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
@@ -80,7 +88,13 @@ private extension GalleryViewController {
         guard let url = urlComponents.url else { return }
         let request = URLRequest(url: url)
         let task = URLSession.shared.dataTask(with: request) { [ weak self ] (data, response, error) in
-            guard let sself = self, let data = data else { return }
+            guard let sself = self, let data = data else {
+                let error = error
+                DispatchQueue.main.async { [ weak self] in
+                    self?.showAlert(title: "error", message: error?.localizedDescription ?? "")
+                }
+                return
+            }
             guard let newGallery = try? JSONDecoder().decode(GalleryModel.self, from: data) else { return }
             sself.gallery = newGallery
             
@@ -91,13 +105,16 @@ private extension GalleryViewController {
         task.resume()
     }
     
-    func configureNavBar() {
-        let rightBarButtonItem = UIBarButtonItem(title: Constants.titleNavigationBarButtom, style: .plain, target: self, action: #selector(exitButton))
-        self.navigationItem.rightBarButtonItem = rightBarButtonItem
-        self.navigationItem.rightBarButtonItem?.tintColor = .black
+    func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okButton = UIAlertAction(title: "try again?", style: .default) { action in
+            self.updateData()
+        }
         
-        self.navigationItem.title = Constants.navigationItemTile
+        alert.addAction(okButton)
+        present(alert, animated: true)
     }
+    
     
     func setConstraints() {
         view.addSubview(galleryCollectionView)
